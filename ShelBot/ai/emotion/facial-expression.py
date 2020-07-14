@@ -189,7 +189,8 @@ else:
             cv2.imwrite("original_fr.png", fr)
             cv2.imwrite("grayscale_fr.png", gray_fr)
 
-        pre = predict_emotion(loaded_model, gray_fr)
+        final_gray_fr = cv2.resize(gray_fr, (48, 48))
+        pre = predict_emotion(loaded_model, final_gray_fr)
         print(pre)
 
         # for (x, y, w, h) in faces:
