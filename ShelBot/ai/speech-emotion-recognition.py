@@ -15,32 +15,6 @@ from sklearn.neural_network import MLPClassifier # multi-layer perceptron model
 from sklearn.metrics import accuracy_score # to measure how good we are
 from sklearn.linear_model import LogisticRegression
 
-import tensorflow as tf
-print(tf.__version__)
-
-## Keras
-from tensorflow import keras
-from keras import regularizers
-from keras.layers import Conv1D, GlobalAveragePooling1D, MaxPooling1D
-from keras.callbacks import ModelCheckpoint, LearningRateScheduler, EarlyStopping
-from keras.callbacks import  History, ReduceLROnPlateau, CSVLogger
-from keras.models import Model, Sequential
-from keras.layers import Dense, Embedding, LSTM
-from keras.layers import Input, Flatten, Dropout, Activation, BatchNormalization
-from keras.layers import Conv1D, MaxPooling1D, AveragePooling1D
-from keras.preprocessing import sequence
-from keras.preprocessing.sequence import pad_sequences
-from keras.wrappers.scikit_learn import KerasClassifier
-from keras.preprocessing.text import Tokenizer
-from keras.utils import np_utils
-from keras.utils import to_categorical
-from keras.models import load_model
-from keras.models import Sequential
-from keras.layers import Dense, Conv2D
-from keras.layers import Activation, MaxPooling2D, Dropout, Flatten, Reshape
-from keras.wrappers.scikit_learn import KerasClassifier
-from sklearn.model_selection import StratifiedKFold
-
 debug = False
 retrain = False
 
