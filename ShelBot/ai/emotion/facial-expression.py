@@ -48,21 +48,6 @@ EMOTIONS_LIST = ["Angry", "Disgust",
 plt.figure(0, figsize=(12,20))
 cpt = 0
 
-if(debug):
-    for expression in os.listdir(base_path + "train/"):
-        for i in range(1,6):
-            cpt = cpt + 1
-            plt.subplot(7,5,cpt)
-            img = load_img(base_path + "train/" + expression + "/" +os.listdir(base_path + "train/" + expression+"/")[i], target_size=(pic_size, pic_size))            
-            plt.imshow(img, cmap="gray")
-
-    plt.tight_layout()
-    plt.show()
-
-if(debug):
-    for expression in os.listdir(base_path + "train"):
-        print(str(len(os.listdir(base_path + "train/" + expression))) + " " + expression + " images")
-
 def load_model(model_json_file, model_weights_file):
     # load model from JSON file
     with open(model_json_file, "r") as json_file:
@@ -79,6 +64,22 @@ def predict_emotion(loaded_model, img):
 
 
 if(retrain):
+
+    if(debug):
+        for expression in os.listdir(base_path + "train/"):
+            for i in range(1,6):
+                cpt = cpt + 1
+                plt.subplot(7,5,cpt)
+                img = load_img(base_path + "train/" + expression + "/" +os.listdir(base_path + "train/" + expression+"/")[i], target_size=(pic_size, pic_size))            
+                plt.imshow(img, cmap="gray")
+
+        plt.tight_layout()
+        plt.show()
+
+    if(debug):
+        for expression in os.listdir(base_path + "train"):
+            print(str(len(os.listdir(base_path + "train/" + expression))) + " " + expression + " images")
+
     # number of images to feed into the NN for every batch
     print("[*] Training the model...")
     batch_size = 128
