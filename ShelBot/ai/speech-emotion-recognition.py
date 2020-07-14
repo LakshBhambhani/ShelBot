@@ -8,7 +8,6 @@ import librosa # to extract speech features
 import glob
 import os
 import sys
-import keras
 import pickle # to save model after training
 from os import path
 from sklearn.model_selection import train_test_split # for splitting training and testing
