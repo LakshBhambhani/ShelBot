@@ -181,6 +181,10 @@ else:
         gray_fr = cv2.cvtColor(fr, cv2.COLOR_BGR2GRAY)
         faces = facec.detectMultiScale(gray_fr, 1.3, 5)
 
+        if(debug):
+            cv2.imwrite("original_fr.png", fr)
+            cv2.imwrite("grayscale_fr.png", gray_fr)
+
         for (x, y, w, h) in faces:
             fc = gray_fr[y:y+h, x:x+w]
 
