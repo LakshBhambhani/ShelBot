@@ -189,12 +189,15 @@ else:
             cv2.imwrite("original_fr.png", fr)
             cv2.imwrite("grayscale_fr.png", gray_fr)
 
-        for (x, y, w, h) in faces:
-            fc = gray_fr[y:y+h, x:x+w]
+        pre = predict_emotion(loaded_model, gray_fr)
+        print(pre)
 
-            roi = cv2.resize(fc, (48, 48))
-            pred = predict_emotion(loaded_model, roi[np.newaxis, :, :, np.newaxis])
-            print(pred)
+        # for (x, y, w, h) in faces:
+        #     fc = gray_fr[y:y+h, x:x+w]
+
+        #     roi = cv2.resize(fc, (48, 48))
+        #     pred = predict_emotion(loaded_model, roi[np.newaxis, :, :, np.newaxis])
+        #     print(pred)
 
 
 
