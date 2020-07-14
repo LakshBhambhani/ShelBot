@@ -40,8 +40,7 @@ pic_size = 48
 # input path for the images
 base_path = "../RawData/facial-expression/images/"
 
-EMOTIONS_LIST = ["Angry", "Disgust",
-                     "Fear", "Happy",
+EMOTIONS_LIST = ["Angry", "Happy",
                      "Neutral", "Sad",
                      "Surprise"]
 
@@ -60,6 +59,7 @@ def load_model(model_json_file, model_weights_file):
 
 def predict_emotion(loaded_model, img):
     preds = loaded_model.predict(img)
+    print("PREDS:  ", preds)
     return EMOTIONS_LIST[np.argmax(preds)]
 
 
