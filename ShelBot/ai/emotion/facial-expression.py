@@ -60,7 +60,7 @@ def load_model(model_json_file, model_weights_file):
 
 def predict_emotion(loaded_model, img):
     preds = loaded_model.predict(img)
-    return FacialExpressionModel.EMOTIONS_LIST[np.argmax(preds)]
+    return EMOTIONS_LIST[np.argmax(preds)]
 
 
 if(retrain):
@@ -178,9 +178,11 @@ else:
 
     print("[*] Running recog")
     while True:
-        _, fr = video.read()
+        _, fr = cv2.rotate(video.read(), cv2.ROTATE_180)
         gray_fr = cv2.cvtColor(fr, cv2.COLOR_BGR2GRAY)
         faces = facec.detectMultiScale(gray_fr, 1.3, 5)
+
+        print("FAces: ", faces)
 
         if(debug):
             cv2.imwrite("original_fr.png", fr)
