@@ -16,8 +16,10 @@ from sklearn.neural_network import MLPClassifier # multi-layer perceptron model
 from sklearn.metrics import accuracy_score # to measure how good we are
 from sklearn.linear_model import LogisticRegression
 
+import tensorflow as tf
+
 ## Keras
-import keras
+from tf.keras import keras
 from keras import regularizers
 from keras.layers import Conv1D, GlobalAveragePooling1D, MaxPooling1D
 from keras.callbacks import ModelCheckpoint, LearningRateScheduler, EarlyStopping
