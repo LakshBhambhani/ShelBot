@@ -20,7 +20,7 @@ retrain = False
 
 fs = 48000
 sd.default.samplerate=fs
-duration=5
+duration=0.1
 
 modelName = "speech-emotion-model.sav"
 
