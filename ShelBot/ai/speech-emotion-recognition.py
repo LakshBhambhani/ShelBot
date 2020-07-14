@@ -16,6 +16,7 @@ from sklearn.metrics import accuracy_score # to measure how good we are
 from sklearn.linear_model import LogisticRegression
 
 import tensorflow as tf
+print(tf.__version__)
 
 ## Keras
 import keras
