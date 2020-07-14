@@ -18,7 +18,7 @@ from sklearn.linear_model import LogisticRegression
 import tensorflow as tf
 
 ## Keras
-from tf.keras import keras
+import keras
 from keras import regularizers
 from keras.layers import Conv1D, GlobalAveragePooling1D, MaxPooling1D
 from keras.callbacks import ModelCheckpoint, LearningRateScheduler, EarlyStopping
