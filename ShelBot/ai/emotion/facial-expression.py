@@ -10,14 +10,15 @@ import cv2
 # Keras
 import tensorflow
 from tensorflow import keras
-from keras.preprocessing.image import load_img, img_to_array, ImageDataGenerator
+tensorflow.__version__
+
+from tensorflow.keras.preprocessing.image import load_img, img_to_array, ImageDataGenerator
 from keras.layers import Dense, Input, Dropout, GlobalAveragePooling2D, Flatten, Conv2D, BatchNormalization, Activation, MaxPooling2D
 from keras.models import Model, Sequential
 from keras.optimizers import Adam
 from keras.callbacks import ModelCheckpoint
 from keras.models import model_from_json
 
-tensorflow.__version__
 
 debug = False
 retrain = False
