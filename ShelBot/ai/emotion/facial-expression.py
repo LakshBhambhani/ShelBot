@@ -172,7 +172,7 @@ else:
     facec = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
     video = cv2.VideoCapture(0)
-    fr = video.read()
+    _, fr = video.read()
     gray_fr = cv2.cvtColor(fr, cv2.COLOR_BGR2GRAY)
     faces = facec.detectMultiScale(gray_fr, 1.3, 5)
 
