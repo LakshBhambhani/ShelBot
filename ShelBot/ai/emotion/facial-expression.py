@@ -179,7 +179,7 @@ else:
     print("[*] Running recog")
     while True:
         _, fr = video.read()
-        _, fr = cv2.rotate(fr, cv2.ROTATE_180)
+        fr = cv2.rotate(fr, cv2.ROTATE_180)
         gray_fr = cv2.cvtColor(fr, cv2.COLOR_BGR2GRAY)
         faces = facec.detectMultiScale(gray_fr, 1.3, 5)
 
