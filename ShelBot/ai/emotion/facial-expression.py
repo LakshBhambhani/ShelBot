@@ -41,6 +41,7 @@ pic_size = 48
 base_path = "../RawData/facial-expression/images/"
 
 EMOTIONS_LIST = ["Angry", "Happy",
+                    "Disgust", "Fear",
                      "Neutral", "Sad",
                      "Surprise"]
 
