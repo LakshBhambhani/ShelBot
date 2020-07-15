@@ -60,7 +60,7 @@ def load_model(model_json_file, model_weights_file):
 
 def predict_emotion(loaded_model, img):
     preds = loaded_model.predict(img)
-    print("PREDS:  ", preds)
+    # print("PREDS:  ", preds)
     return EMOTIONS_LIST[np.argmax(preds)]
 
 
@@ -186,10 +186,6 @@ else:
 
         print("FAces: ", faces)
 
-        if(debug):
-            cv2.imwrite("original_fr.png", fr)
-            cv2.imwrite("grayscale_fr.png", gray_fr)
-
         # final_gray_fr = cv2.resize(gray_fr, (48, 48))
         # pre = predict_emotion(loaded_model, final_gray_fr[np.newaxis, :, :, np.newaxis])
         # print(pre)
@@ -200,6 +196,13 @@ else:
             roi = cv2.resize(fc, (48, 48))
             pred = predict_emotion(loaded_model, roi[np.newaxis, :, :, np.newaxis])
             print(pred)
+
+            if(debug):
+                cv2.rectangle(img, (x,y), (x+w, y+h), (255, 0, 0), 3)
+
+        if(debug):
+            cv2.imwrite("original_fr.png", fr)
+            cv2.imwrite("grayscale_fr.png", gray_fr)
 
 
 
