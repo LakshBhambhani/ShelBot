@@ -198,7 +198,7 @@ else:
             print(pred)
 
             if(debug):
-                cv2.rectangle(img, (x,y), (x+w, y+h), (255, 0, 0), 3)
+                cv2.rectangle(fr, (x,y), (x+w, y+h), (255, 0, 0), 3)
 
         if(debug):
             cv2.imwrite("original_fr.png", fr)
