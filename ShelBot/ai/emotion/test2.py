@@ -115,6 +115,7 @@ elif mode == "display":
     while True:
         # Find haar cascade to draw bounding box around face
         ret, frame = cap.read()
+        frame = cv2.rotate(frame, cv2.ROTATE_180)
         if not ret:
             print("[*] Camera not found")
             break
