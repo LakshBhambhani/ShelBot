@@ -19,6 +19,8 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import ModelCheckpoint
 from tensorflow.keras.models import model_from_json
 
+from sklearn.neural_network import MLPClassifier # multi-layer perceptron model
+
 
 debug = False
 retrain = False
@@ -168,7 +170,8 @@ if(retrain):
                                     )
 else:
     print("[*] Loading the model...")
-    loaded_model = load_model(mjson_file, mweights_file)
+    # loaded_model = load_model(mjson_file, mweights_file)
+    knn = 
     
     if(debug):
         loaded_model.summary()
