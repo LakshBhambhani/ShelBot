@@ -1,7 +1,7 @@
 import numpy as np
 import argparse
 import matplotlib.pyplot as plt
-# import cv2
+import cv2
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Flatten
 from tensorflow.keras.layers import Conv2D
@@ -100,6 +100,7 @@ if mode == "train":
 
 # emotions will be displayed on your face from the webcam feed
 elif mode == "display":
+    print("[*] Loading the model...")
     model.load_weights('model.h5')
 
     # prevents openCL usage and unnecessary logging messages
@@ -109,12 +110,16 @@ elif mode == "display":
     emotion_dict = {0: "Angry", 1: "Disgusted", 2: "Fearful", 3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
 
     # start the webcam feed
+    print("[*] Loading camera...")
     cap = cv2.VideoCapture(0)
     while True:
         # Find haar cascade to draw bounding box around face
         ret, frame = cap.read()
         if not ret:
+            print("[*] Camera not found")
             break
+
+        print("[*] Detecting faces...")
         facecasc = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         faces = facecasc.detectMultiScale(gray,scaleFactor=1.3, minNeighbors=5)
@@ -126,9 +131,9 @@ elif mode == "display":
             prediction = model.predict(cropped_img)
             maxindex = int(np.argmax(prediction))
             cv2.putText(frame, emotion_dict[maxindex], (x+20, y-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
+            print(prediction)
 
         # cv2.imshow('Video', cv2.resize(frame,(1600,960),interpolation = cv2.INTER_CUBIC))
-        print(prediction)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
