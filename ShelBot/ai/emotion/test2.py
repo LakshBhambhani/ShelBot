@@ -124,6 +124,9 @@ elif mode == "display":
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         faces = facecasc.detectMultiScale(gray,scaleFactor=1.3, minNeighbors=5)
 
+        cv2.imwrite("original_fr.png", frame)
+        cv2.imwrite("grayscale_fr.png", gray)
+
         for (x, y, w, h) in faces:
             cv2.rectangle(frame, (x, y-50), (x+w, y+h+10), (255, 0, 0), 2)
             roi_gray = gray[y:y + h, x:x + w]
